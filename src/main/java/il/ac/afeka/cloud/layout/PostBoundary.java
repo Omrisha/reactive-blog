@@ -5,7 +5,6 @@ import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
-
 import il.ac.afeka.cloud.data.PostEntity;
 import il.ac.afeka.cloud.data.ProductEntity;
 import il.ac.afeka.cloud.data.UserEntity;
@@ -19,6 +18,21 @@ public class PostBoundary {
 	private Map<String, Object> moreProperties;
 	
 	public PostBoundary() {
+	}
+
+	public PostBoundary(PostEntity entity) {
+		super();
+
+		if (entity.getUser() != null)
+			this.user = new UserBoundary(entity.getUser());
+		if (entity.getProduct() != null)
+			this.product = new ProductBoundary(entity.getProduct());
+		if (entity.getPostingTimestamp() != null)
+			this.postingTimestamp = entity.getPostingTimestamp();
+		if (entity.getLanguage() != null)
+			this.language = entity.getLanguage();
+		this.postContent = entity.getPostContent();
+		this.moreProperties = entity.getMoreProperties();
 	}
 
 	public PostBoundary(UserBoundary user, ProductBoundary product, String postingTimestamp, String language,
