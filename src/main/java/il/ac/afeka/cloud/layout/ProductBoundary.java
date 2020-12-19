@@ -1,5 +1,7 @@
 package il.ac.afeka.cloud.layout;
 
+import il.ac.afeka.cloud.data.ProductEntity;
+
 public class ProductBoundary {
 	private String id;
 
@@ -10,6 +12,12 @@ public class ProductBoundary {
 	public ProductBoundary(String id) {
 		super();
 		this.id = id;
+	}
+
+	public ProductBoundary(ProductEntity entity) {
+		super();
+		if (entity.getId() != null)
+			this.id = entity.getId();
 	}
 
 	public String getId() {
