@@ -3,12 +3,14 @@ package il.ac.afeka.cloud.data;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "posts")
 public class PostEntity {
 	private String id;
 	private UserEntity user;
+	@Indexed(unique = true)
 	private ProductEntity product;
 	private String postingTimestamp;
 	private String language;
