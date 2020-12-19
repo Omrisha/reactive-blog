@@ -1,14 +1,10 @@
 package il.ac.afeka.cloud;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.DuplicateKeyException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -90,27 +86,4 @@ public class TestPostDao {
 		// TODO Add assertions.
 	}
 	
-	@Test
-	void testCanNotCreatePostWithExistingProduct() throws JsonMappingException, JsonProcessingException {
-		Exception exception = assertThrows(DuplicateKeyException.class, () -> {
-			PostBoundary boundary = new ObjectMapper()
-				      .readerFor(PostBoundary.class)
-				      .readValue(this.simpleJson);
-			PostEntity entity = boundary.toEntity();
-			PostEntity saved = this.postDao.save(entity).block();
-			
-			boundary = new ObjectMapper()
-				      .readerFor(PostBoundary.class)
-				      .readValue(this.simpleJson);
-			entity = boundary.toEntity();
-			saved = this.postDao.save(entity).block();
-	    });
-
-	    String expectedMessage = "duplicate key";
-	    String actualMessage = exception.getMessage();
-
-	    assertTrue(actualMessage.contains(expectedMessage));
-		
-	}
-
 }
