@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PostEntity {
 	private String id;
 	private UserEntity user;
-	@Indexed(unique = true)
 	private ProductEntity product;
 	private String postingTimestamp;
 	private String language;
