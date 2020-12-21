@@ -1,5 +1,7 @@
 package il.ac.afeka.cloud;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -61,6 +63,12 @@ public class TestPostDao {
 		this.postDao = postDao;
 	}
 	
+	@BeforeEach
+	@AfterEach
+	void tearDown() {
+		this.postDao.deleteAll().block();
+	}
+	
 	@Test
 	void testCreatePost() throws JsonMappingException, JsonProcessingException {
 		PostBoundary boundary = new ObjectMapper()
@@ -77,5 +85,5 @@ public class TestPostDao {
 		
 		// TODO Add assertions.
 	}
-
+	
 }
