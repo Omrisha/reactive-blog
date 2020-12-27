@@ -1,4 +1,4 @@
-# ShoppingCatalogService
+# ReactiveBlogService
 
 Reactive Microservice build with Java and SpringBoot, reactor with Gradle build tools.
 
