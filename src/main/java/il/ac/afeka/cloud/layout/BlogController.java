@@ -6,6 +6,7 @@ import il.ac.afeka.cloud.logic.PostReactiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -33,7 +34,7 @@ public class BlogController {
             @PathVariable("email") String email,
             @RequestParam(name = "filterType", required = false, defaultValue = "") FilterTypeEnum filterType,
             @RequestParam(name = "filterValue", required = false, defaultValue = "") String filterValue,
-            @RequestParam(name = "sortBy", required = false, defaultValue = "user.email") SortByEnumaration sortBy,
+            @RequestParam(name = "sortBy", required = false, defaultValue = "postingTimestamp") SortByEnumaration sortBy,
             @RequestParam(name = "sortOrder", required = false, defaultValue = "ASC") String sortOrder) {
         return this.service.getPostsAllByUser(email, filterType, filterValue, sortBy, sortOrder);
     }
@@ -45,7 +46,7 @@ public class BlogController {
             @PathVariable("productId") String productId,
             @RequestParam(name = "filterType", required = false, defaultValue = "") FilterTypeEnum filterType,
             @RequestParam(name = "filterValue", required = false, defaultValue = "") String filterValue,
-            @RequestParam(name = "sortBy", required = false, defaultValue = "user.email") SortByEnumaration sortBy,
+            @RequestParam(name = "sortBy", required = false, defaultValue = "postingTimestamp") SortByEnumaration sortBy,
             @RequestParam(name = "sortOrder", required = false, defaultValue = "ASC") String sortOrder
     ) {
         return this.service.getAllPostsByProduct(
@@ -63,7 +64,7 @@ public class BlogController {
     public Flux<PostBoundary> getAllPosts(
             @RequestParam(name = "filterType", required = false, defaultValue = "") FilterTypeEnum filterType,
             @RequestParam(name = "filterValue", required = false, defaultValue = "") String filterValue,
-            @RequestParam(name = "sortBy", required = false, defaultValue = "user.email") SortByEnumaration sortBy,
+            @RequestParam(name = "sortBy", required = false, defaultValue = "postingTimestamp") SortByEnumaration sortBy,
             @RequestParam(name = "sortOrder", required = false, defaultValue = "ASC") String sortOrder
     ) {
         return this.service.getAllPosts(filterType, filterValue, sortBy, sortOrder);
