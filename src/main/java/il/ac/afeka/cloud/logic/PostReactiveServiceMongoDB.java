@@ -121,19 +121,20 @@ public class PostReactiveServiceMongoDB implements PostReactiveService {
 			String sortOrder) {		
 		Sort.Direction dir = sortOrder.equals("DESC") ? Sort.Direction.DESC : Sort.Direction.ASC;
 		
-		switch (filterType) {
-		case byCreation:
-			TimeEnum time = TimeEnum.valueOf(filterValue);
-			return this.getAllPostsByCreation(
-					dir,
-					sortBy.name(),
-					time);
-		case byCount:
-			return this.getAllPostsByCount(Long.parseLong(filterValue));
-
-		default:
-			break;
-		}
+		if (filterType != null)
+			switch (filterType) {
+			case byCreation:
+				TimeEnum time = TimeEnum.valueOf(filterValue);
+				return this.getAllPostsByCreation(
+						dir,
+						sortBy.name(),
+						time);
+			case byCount:
+				return this.getAllPostsByCount(Long.parseLong(filterValue));
+	
+			default:
+				break;
+			}
 		
 		Flux<PostBoundary> flux = this.postDao
 				.findAll(Sort.by(
