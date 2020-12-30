@@ -4,7 +4,7 @@ Reactive Microservice build with Java and SpringBoot, reactor with Gradle build 
 
 Built for Cloud Programming Course in Afeka College of Management.
 
-You can visit the <a href="https://reactive-blog-service.herokuapp.com/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/blog-controller/getAllPosts">demo</a> running at heroku.
+You can visit the <a href="https://reactive-blog-service.herokuapp.com/swagger-ui.html">demo</a> running at heroku.
 
 
 ## Description
