@@ -1,9 +1,11 @@
 package il.ac.afeka.cloud.data;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 
 public class ProductEntity {
-	
+	@NotNull
 	private String id;
 
 	public ProductEntity() {

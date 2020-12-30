@@ -3,16 +3,25 @@ package il.ac.afeka.cloud.data;
 import java.util.Date;
 import java.util.Map;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "posts")
 public class PostEntity {
+	@NotNull
 	private String id;
+	@NotNull
 	private UserEntity user;
+	@NotNull
 	private ProductEntity product;
+	@NotNull
 	private Date postingTimestamp;
+	@NotBlank
 	private String language;
+	@NotNull
 	private Map<String, Object> postContent;
 	private Map<String, Object> moreProperties;
 	
