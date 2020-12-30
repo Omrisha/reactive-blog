@@ -1,8 +1,11 @@
 # ReactiveBlogService
 
-Reactive Microservice build with Java and SpringBoot, reactor with Gradle build tools.
+Reactive Microservice build with Java and SpringBoot, reactor with Gradle build tools, MongoDB database hosted at atlas.
 
 Built for Cloud Programming Course in Afeka College of Management.
+
+You can visit the <a href="https://reactive-blog-service.herokuapp.com/webjars/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/blog-controller/getAllPosts">demo</a> running at heroku.
+
 
 ## Description
 
@@ -15,6 +18,7 @@ Reactive Microservice for saving and querying blog posts.
 * Open project in Eclipse (File -> Import -> Import existing Gradle Project menu)
 * after opening let gradle built and make the project.
 * Run (Eclipse -> Run as SpringBoot App, IntelliJ -> via Play button)
+* Open http://localhost:8087/swagger-ui.html in your browser.
 
 ## Usage
 
