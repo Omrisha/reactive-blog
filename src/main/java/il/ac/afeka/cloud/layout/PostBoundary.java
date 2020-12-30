@@ -1,5 +1,6 @@
 package il.ac.afeka.cloud.layout;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,7 +13,7 @@ import il.ac.afeka.cloud.data.UserEntity;
 public class PostBoundary {
 	private UserBoundary user;
 	private ProductBoundary product;
-	private String postingTimestamp;
+	private Date postingTimestamp;
 	private String language;
 	private Map<String, Object> postContent;
 	private Map<String, Object> moreProperties;
@@ -35,7 +36,7 @@ public class PostBoundary {
 		this.moreProperties = entity.getMoreProperties();
 	}
 
-	public PostBoundary(UserBoundary user, ProductBoundary product, String postingTimestamp, String language,
+	public PostBoundary(UserBoundary user, ProductBoundary product, Date postingTimestamp, String language,
 			Map<String, Object> postContent, Map<String, Object> moreProperties) {
 		super();
 		this.user = user;
@@ -62,11 +63,11 @@ public class PostBoundary {
 		this.product = product;
 	}
 
-	public String getPostingTimestamp() {
+	public Date getPostingTimestamp() {
 		return postingTimestamp;
 	}
 
-	public void setPostingTimestamp(String postingTimestamp) {
+	public void setPostingTimestamp(Date postingTimestamp) {
 		this.postingTimestamp = postingTimestamp;
 	}
 

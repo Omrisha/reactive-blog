@@ -1,9 +1,9 @@
 package il.ac.afeka.cloud.data;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "posts")
@@ -11,7 +11,7 @@ public class PostEntity {
 	private String id;
 	private UserEntity user;
 	private ProductEntity product;
-	private String postingTimestamp;
+	private Date postingTimestamp;
 	private String language;
 	private Map<String, Object> postContent;
 	private Map<String, Object> moreProperties;
@@ -44,11 +44,11 @@ public class PostEntity {
 		this.product = product;
 	}
 
-	public String getPostingTimestamp() {
+	public Date getPostingTimestamp() {
 		return postingTimestamp;
 	}
 
-	public void setPostingTimestamp(String postingTimestamp) {
+	public void setPostingTimestamp(Date postingTimestamp) {
 		this.postingTimestamp = postingTimestamp;
 	}
 
