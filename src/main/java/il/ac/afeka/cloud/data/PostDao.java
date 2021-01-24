@@ -1,18 +1,14 @@
 package il.ac.afeka.cloud.data;
 
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 
-import reactor.core.publisher.Flux;
+import java.util.List;
 
-public interface PostDao extends ReactiveMongoRepository<PostEntity, String> {
-	
-	public Flux<PostEntity> findAllByUser(UserEntity user, Sort sort);
-	public Flux<PostEntity> findAllByProduct(ProductEntity product, Sort sort);
-	
-	public Flux<PostEntity> findAllByUserAndLanguage(UserEntity user, String language, Sort sort);
-	public Flux<PostEntity> findAllByUserAndProduct(UserEntity user, ProductEntity product, Sort sort);
-	
-	public Flux<PostEntity> findAllByProductAndLanguage(ProductEntity product, String language, Sort sort);
+public interface PostDao extends PagingAndSortingRepository<PostEntity, String> {
+	List<PostEntity> findAllByUser(@Param("user") UserEntity user, Pageable request);
+	List<PostEntity> findAllByProduct(@Param("product") ProductEntity product, Pageable request);
 }

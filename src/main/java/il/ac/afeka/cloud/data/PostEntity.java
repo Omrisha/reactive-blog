@@ -23,7 +23,6 @@ public class PostEntity {
 	private String language;
 	@NotNull
 	private Map<String, Object> postContent;
-	private Map<String, Object> moreProperties;
 	
 	public PostEntity() {
 	}
@@ -75,14 +74,6 @@ public class PostEntity {
 
 	public void setPostContent(Map<String, Object> postContent) {
 		this.postContent = postContent;
-	}
-
-	public Map<String, Object> getMoreProperties() {
-		return moreProperties;
-	}
-
-	public void setMoreProperties(Map<String, Object> moreProperties) {
-		this.moreProperties = moreProperties;
 	}
 
 }

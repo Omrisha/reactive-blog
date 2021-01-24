@@ -1,18 +1,16 @@
-# ReactiveBlogService
+# BlogService
 
-Reactive Microservice build with Java and SpringBoot, reactor with Gradle build tools, MongoDB database hosted at atlas.
+Microservice build with Java and SpringBoot, Gradle build tools, MongoDB database.
 
 Built for Cloud Programming Course in Afeka College of Management.
 
-You can visit the <a href="https://reactive-blog-service.herokuapp.com/swagger-ui.html">demo</a> running at heroku.
-
-
 ## Description
 
-Reactive Microservice for saving and querying blog posts.
+Microservice for saving and querying blog posts.
 
 ## Installation
 
+* Running MongoDB local database from the following command: `docker run --name mongotest -p 27017:27017 -d mongo`
 * `git clone https://github.com/danielsason112/reactive-blog`
 * Open project in IntelliJ (Open project menu or import from git menu)
 * Open project in Eclipse (File -> Import -> Import existing Gradle Project menu)
@@ -33,23 +31,23 @@ Reactive Microservice for saving and querying blog posts.
 
 - POST /blog
 
-- GET /blog/byUser/{email}?sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byUser/{email}?sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
   
-- GET /blog/byUser/{email}?filterType=byLanguage&filterValue={language}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byUser/{email}?filterType=byLanguage&filterValue={language}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
 
-- GET /blog/byUser/{email}?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byUser/{email}?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
   
-- GET /blog/byUser/{email}?filterType=byProduct&filterValue={productId}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byUser/{email}?filterType=byProduct&filterValue={productId}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
 
-- GET /blog/byProduct/{productId}?sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byProduct/{productId}?sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
 
-- GET /blog/byProduct/{productId}?filterType=byLanguage&filterValue={language}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byProduct/{productId}?filterType=byLanguage&filterValue={language}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
 
-- GET /blog/byProduct/{productId}?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog/byProduct/{productId}?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
   
-- GET /blog?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}
+- GET /blog?filterType=byCreation&filterValue={timeEnum}&sortBy={sortArrt}&sortOrder={order}&page={page}&size={size}
 
-- GET /blog?filterType=byCount&filterValue={postsCount}
+- GET /blog?filterType=byCount&filterValue={postsCount}&page={page}&size={size}
   
 - DELETE /blog
 
