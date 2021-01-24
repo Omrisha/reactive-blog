@@ -1,8 +1,11 @@
 package il.ac.afeka.cloud.data;
 
+import javax.validation.constraints.Email;
+
 import org.springframework.data.annotation.Id;
 
 public class UserEntity {
+	@Email
 	private String email;
 
 	public UserEntity() {
